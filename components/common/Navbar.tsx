@@ -36,7 +36,7 @@ function Navbar() {
   return (
     <nav className="border-b bg-background sticky top-0 z-10">
       <div className="container mx-auto flex justify-between items-center py-4">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 cursor-pointer">
           <Train className="h-6 w-6" />
           <span className="font-bold text-xl">TrainScheduler</span>
         </Link>
@@ -44,10 +44,10 @@ function Navbar() {
         {/* Desktop navigation */}
         <div className="hidden md:flex space-x-4">
           {navItems.map((item) => (
-            <Link key={item.path} href={item.path}>
+            <Link key={item.path} href={item.path} className="cursor-pointer">
               <Button
                 variant={pathname === item.path ? "default" : "ghost"}
-                className="flex items-center"
+                className="flex items-center cursor-pointer"
               >
                 {item.icon}
                 {item.label}
@@ -58,7 +58,10 @@ function Navbar() {
           {isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  className="flex items-center gap-2 cursor-pointer"
+                >
                   <User className="h-4 w-4" />
                   <span>Account</span>
                 </Button>
@@ -77,11 +80,13 @@ function Navbar() {
             </DropdownMenu>
           ) : (
             <div className="flex space-x-2">
-              <Link href="/login">
-                <Button variant="outline">Login</Button>
+              <Link href="/login" className="cursor-pointer">
+                <Button variant="outline" className="cursor-pointer">
+                  Login
+                </Button>
               </Link>
-              <Link href="/register">
-                <Button>Register</Button>
+              <Link href="/register" className="cursor-pointer">
+                <Button className="cursor-pointer">Register</Button>
               </Link>
             </div>
           )}
@@ -90,14 +95,17 @@ function Navbar() {
         <div className="md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="cursor-pointer">
                 <Menu />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               {navItems.map((item) => (
                 <DropdownMenuItem key={item.path} asChild>
-                  <Link href={item.path} className="flex items-center">
+                  <Link
+                    href={item.path}
+                    className="flex items-center cursor-pointer"
+                  >
                     {item.icon}
                     {item.label}
                   </Link>
@@ -115,10 +123,14 @@ function Navbar() {
               ) : (
                 <>
                   <DropdownMenuItem asChild>
-                    <Link href="/login">Login</Link>
+                    <Link href="/login" className="cursor-pointer">
+                      Login
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/register">Register</Link>
+                    <Link href="/register" className="cursor-pointer">
+                      Register
+                    </Link>
                   </DropdownMenuItem>
                 </>
               )}

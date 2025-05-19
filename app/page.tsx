@@ -17,19 +17,19 @@ export default function Home() {
               Enjoy real-time updates and seamless travel planning.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/schedule">
+              <Link href="/schedule" className="cursor-pointer">
                 <Button
                   size="lg"
-                  className="bg-white text-black hover:bg-gray-100"
+                  className="bg-white text-black hover:bg-gray-100 cursor-pointer"
                 >
                   View Schedule <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/login">
+              <Link href="/login" className="cursor-pointer">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white hover:bg-gray-800 hover:text-white text-black"
+                  className="border-white hover:bg-gray-800 hover:text-white text-black cursor-pointer"
                 >
                   Login
                 </Button>
@@ -95,11 +95,13 @@ export default function Home() {
             receive real-time updates.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/register">
-              <Button size="lg">Register Now</Button>
+            <Link href="/register" className="cursor-pointer">
+              <Button size="lg" className="cursor-pointer">
+                Register Now
+              </Button>
             </Link>
-            <Link href="/schedule">
-              <Button size="lg" variant="outline">
+            <Link href="/schedule" className="cursor-pointer">
+              <Button size="lg" variant="outline" className="cursor-pointer">
                 Browse Schedules
               </Button>
             </Link>
