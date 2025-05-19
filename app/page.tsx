@@ -1,103 +1,174 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, Train, Clock, MapPin, Shield } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-black text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl font-bold mb-6">
+              Fast, Reliable Train Scheduling
+            </h1>
+            <p className="text-xl mb-8 text-gray-300">
+              Find train schedules effortlessly with our intuitive platform.
+              Enjoy real-time updates and seamless travel planning.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/schedule">
+                <Button
+                  size="lg"
+                  className="bg-white text-black hover:bg-gray-100"
+                >
+                  View Schedule <ChevronRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/login">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white hover:bg-gray-800 hover:text-white text-black"
+                >
+                  Login
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-muted">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose Our Service
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-primary-foreground mb-4">
+                <Train />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Extensive Coverage</h3>
+              <p className="text-muted-foreground">
+                Access schedules for all major train routes nationwide.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-primary-foreground mb-4">
+                <Clock />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Real-time Updates</h3>
+              <p className="text-muted-foreground">
+                Stay informed with live departure and arrival information.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-primary-foreground mb-4">
+                <MapPin />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Station Details</h3>
+              <p className="text-muted-foreground">
+                Get comprehensive information about stations and facilities.
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-primary-foreground mb-4">
+                <Shield />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Reliable Service</h3>
+              <p className="text-muted-foreground">
+                Trust our platform for accurate and up-to-date information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-muted-foreground">
+            Create an account today to access personalized train schedules and
+            receive real-time updates.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Link href="/register">
+              <Button size="lg">Register Now</Button>
+            </Link>
+            <Link href="/schedule">
+              <Button size="lg" variant="outline">
+                Browse Schedules
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What Our Users Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-card p-6 rounded-lg shadow border">
+              <div className="flex items-center mb-4">
+                <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center font-bold">
+                  JD
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-semibold">John Doe</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Frequent Traveler
+                  </p>
+                </div>
+              </div>
+              <p className="text-muted-foreground">
+                &ldquo;This scheduling app has completely transformed my
+                commuting experience. The real-time updates have saved me
+                countless hours.&rdquo;
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow border">
+              <div className="flex items-center mb-4">
+                <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center font-bold">
+                  SM
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-semibold">Sarah Miller</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Business Traveler
+                  </p>
+                </div>
+              </div>
+              <p className="text-muted-foreground">
+                &ldquo;The interface is intuitive and the information is always
+                accurate. I can depend on this service for my business
+                trips.&rdquo;
+              </p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow border">
+              <div className="flex items-center mb-4">
+                <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center font-bold">
+                  RP
+                </div>
+                <div className="ml-4">
+                  <h4 className="font-semibold">Robert Parker</h4>
+                  <p className="text-sm text-muted-foreground">Tourist</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground">
+                &ldquo;As a tourist, I found this app incredibly helpful for
+                navigating the train system in an unfamiliar city. Highly
+                recommended!&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
